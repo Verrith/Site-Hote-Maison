@@ -22,4 +22,5 @@ function toggleDarkMode() {
     icon.classList.add("fa-sun");
   }
 }
+//LCC
 
