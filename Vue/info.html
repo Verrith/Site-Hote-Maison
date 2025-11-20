@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Utilisateur - L'Hôte Maison</title>
+    <link rel="stylesheet" href="../Css/formulaire.css">
+    <link rel="icon" href="../Images/logo.webp" type="image/webp">
+    <link rel="stylesheet" href="..\Css\Affichage.css">
+    <link rel="stylesheet" href="..\Css\en-tete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="..\Css\darkmode.css">
+    <script src="..\Javascript\darkmode.js" defer></script>
+    <script src="..\Javascript\script.js" defer></script>
+    <script src="..\Javascript\info.js" defer></script>
+</head>
+<body>
+  <!-- Haut de la Page -->
+<header class="site-header">
+    <!-- Diaporama -->
+    <div class="slideshow">
+      <img src="../Images/slide/IMG_5218.png" alt="Slide 1" class="slide active">
+      <img src="../Images/slide/IMG_5217.png" alt="Slide 2" class="slide">
+      <img src="../Images/slide/IMG_2552.jpeg" alt="Slide 3" class="slide">
+      <img src="../Images/slide/IMG_5251.png" alt="Slide 4" class="slide">
+      <img src="../Images/slide/IMG_2446.jpeg" alt="Slide 5" class="slide">
+      <img src="../Images/slide/IMG_8517.jpeg" alt="Slide 6" class="slide">
+      <img src="../Images/slide/IMG_8516.jpeg" alt="Slide 7" class="slide">
+    </div>
+    <div class="logo-titre">
+      <a href="Jimmy.html" style="padding-right: 20px;"><img src="..\Images\logo.webp" alt="Logo L'hote Maison"></a>
+      <div class="texte-titre">
+        <a href="accueil.html" style="color: #ffd700; text-decoration: none;">
+        <h1>L'HÔTE MAISON - MAISON DE JEUNES</h1>
+        <div>Pour les jeunes de 12 à 17 ans dans Rosemont-La Petite-Patrie</div>
+        </a>
+      </div>
+    </div>
+
+
+    <nav id="main-nav" class="nav-bar">
+        <button class="menu-toggle" aria-label="Menu mobile" style="text-align: center;">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      <ul>
+        <li><a href="accueil.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a>
+          <!-- Premier menu -->
+          <div class="dropdown">
+            <span class="dropdown-button" onclick="toggleMenu()">
+              <span id="arrow" class="arrow">▼</span>
+            </span>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="Conseil_dadministration.html">Conseil d’administration</a>
+              <a href="équipe.html">Équipe</a>
+              <a href="partenaires.html">Partenaires</a>
+              <a href="Bilans_annuels.html">Bilans annuels</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="bourse_jjr.html">Bourse JJR</a></li>
+        <li><a href="Activités_projets.html">Activités et projets</a>
+          <div class="dropdown">
+            <!-- Deuxième menu -->
+            <div class="dropdown">
+              <span class="dropdown-button" onclick="toggleMenu2()">
+                <span id="arrow2" class="arrow">▼</span>
+              </span>
+              <div id="myDropdown2" class="dropdown-content">
+                <a href="Activités_sportives.html">Activités sportives</a>
+                <a href="Ateliers_dimprovisation.html">Ateliers d’improvisation</a>
+                <a href="Page erreur.html">Camp d’accueil PPS</a>
+                <a href="Conseil_des_jeunes.html">Conseil des jeunes</a>
+                <a href="Périodes libres.html">Périodes libres</a>
+                <a href="sérigraphie.html">Projet de sérigraphie</a>
+                <a href="Projet Musical.html">Projet Musical</a>
+                <a href="Projet Naos.html">Projet Naos</a>
+                <a href="sexo.html">Soirées sexo</a>
+              </div>
+            </div>
+        </li>
+        <li><a href="jeunes.html">Jeunes</a>
+        <div class="dropdown">
+            <span class="dropdown-button" onclick="toggleMenu3()">
+              <span id="arrow3" class="arrow">▼</span>
+            </span>
+          <div id="myDropdown3" class="dropdown-content">
+            <a href="ressources_jeunes.html">Ressources jeunes</a>
+            <a href="fiche_didentification.php">Fiche d’identification</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="parents_ressources.html">Parents et Ressources</a></li>
+        <li><a href="emplois.html">Emplois</a></li>
+    <div class="nav-right">
+      <i id="toggleIcon" class="fa-solid fa-sun" onclick="toggleDarkMode()" title="Changer le mode"></i>
+    </div>
+</div>
+    </nav>
+  </header>
+  <!-- fin Haut de la Page -->
+
+
+
+    <h2 class="text-note">Formulaire Utilisateur</h2>
+    <form action="../php/save_info.php" method="POST">
+
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <label class="required">Prénom</label>
+            <input type="text" name="prenom" required>
+
+            <label class="required">Nom</label>
+            <input type="text" name="nom" required>
+
+            <label class="required">Date de naissance</label>
+            <input type="date" name="date_naissance" required>
+
+            <label class="required">Prénom à la naissance</label>
+            <input type="text" name="prenom_naissance" required>
+
+            <label class="required">Quels pronoms utilises-tu ?</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="pronoms[]" value="Il/lui"> Il/lui</label>
+                <label><input type="checkbox" name="pronoms[]" value="Iel"> Iel</label>
+                <label><input type="checkbox" name="pronoms[]" value="Elle"> Elle</label>
+                <label><input type="checkbox" name="pronoms[]" value="Ielle"> Ielle</label>
+                <label>
+                    <input type="checkbox" id="pronoms_autre_checkbox" name="pronoms[]" value="Autre">
+                    Autre :
+                    <input type="text" id="pronoms_autre" name="pronoms_autre" placeholder="Écris tes pronoms">
+                </label>
+            </div>
+
+            <label class="required">À quel genre t'identifies-tu ?</label>
+            <select id="genre" name="genre_select" required>
+                <option value="" disabled selected hidden>--Choisir--</option>
+                <option value="Garçon">Garçon</option>
+                <option value="Fille">Fille</option>
+                <option value="Non-binaire">Non-binaire</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <input type="text" id="genre_autre" name="genre_autre" placeholder="Écris ton genre" style="display:none;" />
+
+            <label class="required">Adresse</label>
+            <input type="text" name="adresse" required>
+
+            <label class="required">Ville</label>
+            <input type="text" name="ville" required>
+
+            <label class="required">Code postal</label>
+            <input type="text" name="code_postal" required>
+
+            <label>Adresse 2</label>
+            <input type="text" name="adresse2">
+
+            <label>Ville 2</label>
+            <input type="text" name="ville2">
+
+            <label>Code postal 2</label>
+            <input type="text" name="code_postal2">
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact d'urgence 1</legend>
+            <label class="required">Prénom et nom</label>
+            <input type="text" name="contact1_nom" required>
+
+            <label class="required">Lien avec le contact</label>
+            <select name="contact1_lien" required>
+                <option value="" disabled selected hidden>--Choisir--</option>
+                <option value="parent">Parent</option>
+                <option value="beau-parent">Beau-parent</option>
+                <option value="grand-parent">Grand-parent</option>
+                <option value="tuteur-légal">Tuteur légal</option>
+                <option value="intervenant">Intervenant</option>
+            </select>
+
+
+
+            <label class="required">Numéro de téléphone</label>
+            <input type="text" name="contact1_tel" required>
+
+            <label>Autre numéro (cellulaire, bureau, etc)</label>
+            <input type="text" name="contact1_autre_tel">
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact d'urgence 2</legend>
+            <label class="required">Prénom et nom</label>
+            <input type="text" name="contact2_nom" required>
+
+            <label class="required">Lien avec le contact</label>
+            <select name="contact2_lien" required>
+                <option value="" disabled selected hidden>--Choisir--</option>
+                <option value="parent">Parent</option>
+                <option value="beau-parent">Beau-parent</option>
+                <option value="grand-parent">Grand-parent</option>
+                <option value="tuteur-légal">Tuteur légal</option>
+                <option value="intervenant">Intervenant</option>
+            </select>
+
+
+
+            <label class="required">Numéro de téléphone</label>
+            <input type="text" name="contact2_tel" required>
+
+            <label>Autre numéro (cellulaire, bureau, etc)</label>
+            <input type="text" name="contact2_autre_tel">
+        </fieldset>
+
+        <fieldset>
+            <legend>Santé et contact</legend>
+            <label>Problèmes de santé / allergies / troubles</label>
+            <textarea name="sante" placeholder="Ex: épilepsie, allergies, asthme, TDAH, anxiété..."></textarea>
+
+            <label>Numéro où l'on peut te joindre</label>
+            <input type="text" name="numero_rejoindre">
+
+            <label>Meilleur moyen de te contacter (plusieurs possibles)</label>
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="moyen_contact[]" value="Instagram"> Instagram</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Texto"> Texto</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Discord"> Discord</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Courriel"> Courriel</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Facebook/Messenger"> Facebook/Messenger</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Fax"> Fax</label>
+                <label><input type="checkbox" name="moyen_contact[]" value="Télégraphe"> Télégraphe</label>
+
+                <label style="white-space: nowrap;">
+                    <input type="checkbox" id="moyen_autre_checkbox" name="moyen_contact[]" value="Autre">
+                    Autre : 
+                    <input type="text" id="moyen_autre" name="moyen_autre" placeholder="Écris ton moyen">
+                </label>
+
+
+            </div>
+
+
+            <label>Pseudos ou adresses pour te contacter</label>
+            <input type="text" name="pseudos">
+        </fieldset>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- bas de la Page -->
+     <hr>
+
+<div class="contact-grid">
+  <div class="texte-accueil text-link">
+    <h2 class="text-note">Nous contacter</h2>
+    <div><b>Adresse:</b> 1555 rue de Bellechasse, Montréal (QC), H2G 1N9</div>
+    <div><b>Téléphone:</b> <a href="tel:+15142730805">(514) 273-0805</a></div>
+    <ul>
+      <li>Ext. 101: Étienne Vézina, directeur par intérim</li>
+      <li>Ext. 103: Intervenants – Espace des Jeunes</li>
+    </ul>
+    <div><b>Courriel:</b> 
+      <a href="mailto:info@lhotemaison.org">info@lhotemaison.org</a>
+    </div>
+    <br>
+  </div>
+
+  <div class="texte-accueil">
+    <h2 class="text-note">Heures d’ouverture (année scolaire 2025-2026)</h2>
+    <ul>
+      <li>Lundi au mercredi : 15h00 à 20h00</li>
+      <li>Jeudi et vendredi : 15h00 à 21h00</li>
+      <li>Ces heures sont sujettes à changements.<br>Consultez notre Instagram pour les détails.</li>
+    </ul>
+  </div>
+</div>  
+            <br>
+            <h2 class="text-note">Suivez-nous !</h2>
+            <p style="text-align: center;">
+            <a href="https://fr-ca.facebook.com/lhote.maison" target="_blank"><i id="linkIcon" class="fab fa-facebook facebook-icon"></i></a>
+            <a href="https://www.youtube.com/channel/UCCoOsuuxjMWhZb6A9pXWagg" target="_blank"><i id="linkIcon" class="fab fa-youtube youtube-icon"></i></a>
+            <a href="https://www.instagram.com/lhotemaison" target="_blank"><i id="linkIcon" class="fab fa-instagram instagram-icon"></i></a>
+            <a href="https://www.tiktok.com/@lhotemaison?lang=fr"><i id="linkIcon_ticktok" class="fa-brands fa-tiktok tiktok-icon"></i></a>
+          </p>
+            <!-- fin bas de la Page -->
+</body>
+</html>

@@ -43,9 +43,10 @@ body.dark-mode .card {
 body.dark-mode .site-header {
   color: rgb(0, 0, 158);
 }
+
 /* 🎨 Icône toggle */
 #toggleIcon {
-  color: yellow; /* icône jaune */
+  color: yellow;
   transition: transform 0.3s ease;
 }
 
@@ -57,94 +58,237 @@ body.dark-mode .site-header {
   color: rgb(0, 0, 106);
 }
 
-body.dark-mode #linkIcon, body.dark-mode #linkIcon_ticktok {
+body.dark-mode #linkIcon,
+body.dark-mode #linkIcon_ticktok {
   color: yellow;
 }
 
 #linkIcon:hover {
   transform: rotate(20deg);
 }
+
 #linkIcon_ticktok:hover { 
   color: #000000;
   transform: rotate(20deg);
 }
+
 body.dark-mode #linkIcon_ticktok:hover { 
   color: #000000;
   transform: rotate(20deg);
 }
 
+/* Icônes réseaux */
 .facebook-icon:hover {
   background: #1877F2;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
 }
 
 .youtube-icon:hover {
   background: #FF0000;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
 }
 
 .instagram-icon:hover {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.tiktok-icon:hover {
-  color: #000000; /* noir au premier plan */
-  text-shadow: 
-    2px 2px 0 #25F4EE,   /* bleu/turquoise en bas à droite */
-   -2px -2px 0 #FE2C55;  /* rose/rouge en haut à gauche */
   transition: transform 0.3s ease;
 }
 
 .tiktok-icon:hover {
-  transform: scale(1.2); /* petit zoom au hover */
+  color: #000000;
+  text-shadow: 
+    2px 2px 0 #25F4EE,
+   -2px -2px 0 #FE2C55;
+  transition: transform 0.3s ease;
+}
+
+.tiktok-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Menu dropdown */
+body.dark-mode .dropdown-content {
+  background-color: rgb(41, 41, 41);
+  box-shadow: 0px 8px 16px gray;
+  border: 1px solid #333;
+}
+
+body.dark-mode .dropdown-content a {
+  color: white;
+}
+
+.dropdown-content a:hover {
+  color: rgb(0, 0, 145);
+  border-bottom: 2px solid rgb(0, 0, 145);
+}
+
+body.dark-mode .dropdown-content a:hover {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+  background-color: rgb(47, 47, 47);
+}
+
+body.dark-mode .citation {
+  color: #bdbcbc;
+}
+
+.Naos {
+  color: green;
+}
+body.dark-mode .Naos {
+  color: lightgreen;
+}
+
+.Naos2 {
+  color: #0000ff;
+}
+body.dark-mode .Naos2 {
+  color: lightblue;
 }
 
 
 
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #e1e1e1;
+}
 
-    body.dark-mode .dropdown-content {
-      background-color: rgb(41, 41, 41);
-      box-shadow: 0px 8px 16px gray;
-      border: 1px solid #333;
-    }
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 0 10px;
+  color: rgb(0, 0, 106);
+}
 
-    body.dark-mode .dropdown-content a {
-      color: white;
-    }
-    
-    .dropdown-content a:hover{
-      color: rgb(0, 0, 145);
-      border-bottom: 2px solid rgb(0, 0, 145);
-    }
+label {
+  color: #000000;
+}
 
-    body.dark-mode .dropdown-content a:hover{
-      color: #ffd700;
-      border-bottom: 2px solid #ffd700;
-    }
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  border: 1px solid #ccc;
+  background: white;
+  color: black;
+}
 
-    body.dark-mode .dropdown-content a:hover {
-      background-color: rgb(47, 47, 47);;
-    }
+input[type="submit"],
+button[type="submit"] {
+  background-color: rgb(0, 0, 106);
+  color: #ffd700;
+  border: 2px solid #ffd700;
+}
 
-    body.dark-mode .citation {
-    color: #bdbcbc;
-  }
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background-color: #ffd700;
+  color: rgb(0, 0, 106);
+  border-color: rgb(0, 0, 106);
+}
 
-  .Naos {
-    color: green;
-  }
-  body.dark-mode .Naos {
-    color: lightgreen;
-  }
-  .Naos2 {
-    color: #0000ff;;
-  }
-  body.dark-mode .Naos2 {
-    color: lightblue;
-  }
+.required::after {
+  content: " *";
+  color: red;
+}
 
-  /*LCC*/
+/* Champ "Autre" */
+#pronoms_autre {
+  margin-left: 10px;
+  width: auto;
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  border: 1px solid #ccc;
+}
+
+input[type="submit"],
+button[type="submit"] {
+  background-color: rgb(0, 0, 106);
+  color: #ffd700;
+  border: 2px solid #ffd700;;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #ffd700;
+  color: rgb(0, 0, 106);
+  border-color: rgb(0, 0, 106);
+}
+
+form {
+  background: rgb(237, 237, 237);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Les labels ajoutés aussi */
+body.dark-mode label {
+  color: #f0f0f0 !important;
+}
+/* 🧾 FORMULAIRE — MODE SOMBRE */
+body.dark-mode form {
+background: rgb(41, 41, 41);
+  box-shadow: 0 0 20px gray;
+}
+
+body.dark-mode fieldset {
+  background: #141414;
+  border-color: #555;
+}
+
+body.dark-mode legend {
+  color: #ffd700;
+}
+
+body.dark-mode label {
+  color: #f0f0f0;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="date"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="tel"],
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #3c3c3c;
+  border: 1px solid #666;
+  color: #fff;
+}
+
+/* 🌙 Correction : champs ajoutés dynamiquement */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #3b3b3b !important;
+  color: #ffffff !important;
+  border: 1px solid #777 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #cccccc !important;
+}
+
+/* Les labels ajoutés aussi */
+body.dark-mode label {
+  color: #f0f0f0 !important;
+}
+
+/* LCC */

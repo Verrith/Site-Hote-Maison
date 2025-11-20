@@ -8,10 +8,13 @@
   <link rel="icon" href="../Images/logo.webp" type="image/webp">
         <link rel="stylesheet" href="..\Css\Affichage.css">
         <link rel="stylesheet" href="..\Css\en-tete.css">
+        <link rel="stylesheet" href="../Css/mot_de_passe.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="..\Css\darkmode.css">
         <script src="..\Javascript\darkmode.js" defer></script>
         <script src="..\Javascript\script.js" defer></script>
+        <script src="..\Javascript\mot_de_passe.js" defer></script>
+        <link rel="stylesheet" href="../Css/formulaire.css">
     </head>
     <body>
   <!-- Haut de la Page -->
@@ -85,7 +88,7 @@
             </span>
           <div id="myDropdown3" class="dropdown-content">
             <a href="ressources_jeunes.html">Ressources jeunes</a>
-            <a href="fiche_didentification.html">Fiche d’identification</a>
+            <a href="fiche_didentification.php">Fiche d’identification</a>
           </div>
         </div>
         </li>
@@ -103,23 +106,110 @@
 <h2 class="text-note">Tu n’as pas encore remplie ta fiche d’identification?<br>Tu es à la bonne place!</h2><hr>
 <section class="texte-accueil" style="font-size: large;">
     <p>Hey hey hey! Connais-tu l’Hôte Maison? J’imagines que oui, puisque tu lis ceci… En tout cas, nous, on aimerait mieux te connaître. Nous avons besoin de certaines informations pour que ton expérience à la Maison des jeunes soient la plus belle et sécuritaire possible. Bien évidemment, tout ce que tu nous dis est confidentiel; l’Hôte Maison ne partagera pas ces informations avec d’autres personnes.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevd3c4jJ7rUzYFry5L8nWnkWH1hzSlLFCMtQS8OzRKzMDgWg/viewform?vc=0&c=0&w=1&flr=0" class="bouton_a">Remplir ma fiche d’inscription</a>
-</section><br><br>
+    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+        <p id="successMsg" class="success-message">✅ Votre fiche a été enregistrée avec succès !</p>
+        <script>
+            setTimeout(function() {
+                const msg = document.getElementById('successMsg');
+                if(msg) {
+                    msg.style.opacity = '0';  // fade out
+                    msg.style.transform = 'translateY(-20px)'; // optionnel : glissement
+                    setTimeout(function(){ msg.remove(); }, 1000); // supprime après fade
+                }
+            }, 4000); // 4s avant fade
+        </script>
+    <?php endif; ?>
+
+    <a href="info.html" class="bouton_a">Remplir ma fiche d’inscription</a>
+</section>
+
+<br><br>
+<section class="texte-accueil" style="font-size: large;">
+<p>Mot de passe pour accéder aux informations :</p>
+
+<form action="../php/login.php" method="POST">
+    <?php
+    if (isset($_GET['error'])) {
+        $errorMessage = '';
+        if ($_GET['error'] === 'empty') $errorMessage = 'Veuillez entrer un mot de passe.';
+        if ($_GET['error'] === 'badpass') $errorMessage = 'Mot de passe incorrect.';
+        if ($_GET['error'] === 'nouser') $errorMessage = 'Aucun mot de passe défini en base.';
+        if ($errorMessage !== '') {
+            echo '<p id="errorMsg" class="error-message">' . htmlspecialchars($errorMessage) . '</p>';
+            echo '<script>
+                    setTimeout(function() {
+                        var msg = document.getElementById("errorMsg");
+                        if(msg) {
+                            msg.style.opacity = "0";
+                            setTimeout(function(){ msg.remove(); }, 1000);
+                        }
+                    }, 4000);
+                  </script>';
+        }
+    }
+    ?>
+
+    <!-- Nouveau champ avec œil -->
+    <div class="input-oeil">
+        <input type="password" name="password" required placeholder="mot de passe">
+        <i class="fa-solid fa-eye" onclick="togglePassword(this)"></i>
+    </div>
+
+    <button type="submit">Envoyer</button>
+</form>
+
+<style>
+/* Apparence personnalisée du message d'erreur */
+.error-message {
+    background-color: #ffdddd;  /* fond rouge clair */
+    color: #b20000;             /* texte rouge foncé */
+    padding: 12px 20px;
+    border-left: 6px solid #b20000;  /* accent sur le côté */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: opacity 1s, transform 1s;
+}
+
+/* Optionnel : effet de glissement vers le haut lors du fade */
+#errorMsg.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.success-message {
+    background-color: #ddffdd;  /* vert clair */
+    color: #006600;             /* vert foncé */
+    padding: 12px 20px;
+    border-left: 6px solid #006600;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: opacity 1s, transform 1s;
+}
+
+</style>
+
+</section>
+<!-- Affichage des erreurs éventuelles -->
+<br><br>
 
 
     <!-- bas de la Page -->
      <hr>
 
 <div class="contact-grid">
-  <div class="texte-accueil">
+  <div class="texte-accueil text-link">
     <h2 class="text-note">Nous contacter</h2>
     <div><b>Adresse:</b> 1555 rue de Bellechasse, Montréal (QC), H2G 1N9</div>
-    <div><b>Téléphone:</b> (514) 273-0805</div>
+    <div><b>Téléphone:</b> <a href="tel:+15142730805">(514) 273-0805</a></div>
     <ul>
       <li>Ext. 101: Étienne Vézina, directeur par intérim</li>
       <li>Ext. 103: Intervenants – Espace des Jeunes</li>
     </ul>
-    <div class="text-link"><b>Courriel:</b> 
+    <div><b>Courriel:</b> 
       <a href="mailto:info@lhotemaison.org">info@lhotemaison.org</a>
     </div>
     <br>
